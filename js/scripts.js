@@ -11,7 +11,7 @@ var pokemonList = [
     },
     {
         name: 'Charizard',
-        heigth: 1.7 ,
+        heigth: 1.7,
         type: ['Monster', 'Dragon']
     },
     {
