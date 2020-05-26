@@ -1,12 +1,12 @@
 var pokemonList = [
     {
         name: 'Bulbasaur',
-        heigth: 7,
+        heigth: 0.6,
         type: ['grass', 'poison']
     },
     {
         name: 'Venusaur',
-        heigth: 2,
+        heigth: 0.8,
         type: ['Monster', 'Grass']
     },
     {
@@ -21,8 +21,19 @@ var pokemonList = [
     }
     ];
 
-
-for(i = 0; i < pokemonList.length; i++){
-    //document.write(pokemonList[i].name);
-    console.log(pokemonList[i].name + "("+ "height: " +pokemonList[i].heigth + ")");
+function myFunction(a) {
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    cell1.innerHTML = a;
 }
+
+
+for(i = 0; i < pokemonList.length; i++) {
+    if (pokemonList[i].heigth > 1) {
+        document.write(myFunction(pokemonList[i].name + "(" + "height: " + pokemonList[i].heigth + ")" + "- Wow, that’s big!"));
+    } else {
+        document.write(myFunction(pokemonList[i].name + "(" + "height: " + pokemonList[i].heigth + ")"));
+    }
+}
+
