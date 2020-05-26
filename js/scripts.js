@@ -23,6 +23,6 @@ var pokemonList = [
 
 
 for(i = 0; i < pokemonList.length; i++){
-    document.write(pokemonList[i].name);
-    console.log(pokemonList[i].name);
+    //document.write(pokemonList[i].name);
+    console.log(pokemonList[i].name + "("+ "height: " +pokemonList[i].heigth + ")");
 }
