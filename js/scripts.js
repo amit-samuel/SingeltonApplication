@@ -36,4 +36,3 @@ for(var i = 0; i < pokemonList.length; i++) {
     }
 }
 
-console.log(pokemonList[a].name);
