@@ -20,19 +20,8 @@ var pokemonList = [
         type: ['Monster', 'Water' ]
     }
     ];
-function myFunction(a) {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    cell1.innerHTML = a;
-}
 
 
-for(var i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].heigth > 1) {
-        document.write(myFunction(pokemonList[i].name + "(" + "height: " + pokemonList[i].heigth + ")" + "- Wow, that’s big!"));
-    } else {
-        document.write(myFunction(pokemonList[i].name + "(" + "height: " + pokemonList[i].heigth + ")"));
-    }
-}
-
+Object.keys(pokemonList).forEach(function (property) {
+console.log(pokemonList[property]);
+});
