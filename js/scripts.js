@@ -20,7 +20,6 @@ var pokemonList = [
         type: ['Monster', 'Water' ]
     }
     ];
-
 function myFunction(a) {
     var table = document.getElementById("myTable");
     var row = table.insertRow(0);
@@ -29,7 +28,7 @@ function myFunction(a) {
 }
 
 
-for(i = 0; i < pokemonList.length; i++) {
+for(var i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].heigth > 1) {
         document.write(myFunction(pokemonList[i].name + "(" + "height: " + pokemonList[i].heigth + ")" + "- Wow, that’s big!"));
     } else {
@@ -37,3 +36,4 @@ for(i = 0; i < pokemonList.length; i++) {
     }
 }
 
+console.log(pokemonList[a].name);
