@@ -23,7 +23,11 @@ var pokemonRepository = (function () {
     ];
 
     function add(item) {
-        pokemonList.push(item);
+        if (typeof item.name === "string" && typeof item.heigth === "number") {
+            pokemonList.push(item);
+        }else {
+            console.log("Type of added name or heigth not correct")
+        }
     }
 
     function getAll() {
@@ -43,7 +47,6 @@ function myLoopFunction(pok){
     console.log(pok.name + "(" + "height: " + pok.heigth + ")")
 );
 }
-//console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu' });
+pokemonRepository.add({ name: "Pikachu", heigth: 0.3 });
 var a = pokemonRepository.getAll();
 console.log(a.forEach(myLoopFunction));
