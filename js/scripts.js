@@ -44,9 +44,21 @@ var pokemonRepository = (function () {
 function myLoopFunction(pok){
     return (pok.heigth > 1 ?
         console.log( pok.name + "(" + "height: " + pok.heigth + ")" + "- Wow, that’s big!"):
-    console.log(pok.name + "(" + "height: " + pok.heigth + ")")
-);
+        console.log(pok.name + "(" + "height: " + pok.heigth + ")"));
 }
+//muss noch fertig
+function filterName(a, name){
+    return (name ?
+        console.log("Pokémon found"):
+        console.log("Could not found Pokémon"));
+}
+
+
+
+
 pokemonRepository.add({ name: "Pikachu", heigth: 0.3 });
 var a = pokemonRepository.getAll();
-console.log(a.forEach(myLoopFunction));
+a.forEach(myLoopFunction);
+//a.filter(filterName(a, "Venusaur"))
+
+
