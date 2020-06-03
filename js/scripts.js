@@ -56,6 +56,7 @@ function creatElement(printText) {
     var listItem = document.createElement('li');
     var button = document.createElement('button');
     button.innerText = printText;
+    button.classList.add('myStyle');
     container.appendChild(listItem);
     listItem.appendChild(button);
     button.addEventListener('click', function (event){
