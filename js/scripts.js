@@ -53,14 +53,20 @@ function addListItem(pok) {
 
 function creatElement(printText) {
     var container = document.querySelector('.pokemon-list');
+    var listItem = document.createElement('li');
     var button = document.createElement('button');
     button.innerText = printText;
-    container.appendChild(button);
+    container.appendChild(listItem);
+    listItem.appendChild(button);
+    button.addEventListener('click', function (event){
+        console.log(event);
+        showDetails(printText);
+    });
 }
 
 
-function showDetails(details){
-    console.log("Hallo");
+function showDetails(pokemon){
+    console.log(pokemon.name);
 }
 
 
@@ -70,5 +76,3 @@ var a = pokemonRepository.getAll();
 //a.forEach(myLoopFunction);
 //a.filter(filterName(a, "Venusaur"))
 a.forEach(addListItem);
-
-
