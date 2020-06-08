@@ -69,11 +69,9 @@ function addListItem(pokemone) {
         var listItem = document.createElement('li');
         var button = document.createElement('button');
         button.innerText = pokemone.name;
-        //container.appendChild(listItem); //object bricht
+        container.appendChild(listItem); //object breaks
         listItem.appendChild(button);
-        document.write(pokemone);
-
-        button.addEventListener('click', function (event) { //object bricht
+        button.addEventListener('click', function (event) { //object breaks
             document.write(pokemone);
             pokemonRepository.showDetails(pokemone);
         });
