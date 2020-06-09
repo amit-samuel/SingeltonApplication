@@ -11,15 +11,12 @@ var pokemonRepository = (function () {
     }
     
     function loadList() {
-        document.write("loadList");
         return fetch(apiUrl).then(function (response) {
+            debugger;
             return response.json();
-            document.write("loadList fetch \n");
 
         }).then(function (json) {
-            document.write("loadList then \n");
-
-            json.results.forEach(function (item) {    //result /results
+            json.results.forEach(function (item) {
                 var pokemon = {
                     name: item.name,
                     detailsUrl: item.url
@@ -27,20 +24,14 @@ var pokemonRepository = (function () {
                 add(pokemon);
             })
         }).catch(function (e) {
-            document.write("loadDetails  catch error\n");
-
             console.error(e);
         })
     }
     
     function loadDetails(item) {
-        document.write("loadDetails \n");
-
         var url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
-            document.write("loadDetails  then\n");
-
         }).then(function (details) {
             //item.imageUrl = details.sprites.front_default; //do not know sprities ???
             item.height = details.height;
@@ -71,7 +62,7 @@ function addListItem(pokemone) {
         button.innerText = pokemone.name;
         container.appendChild(listItem); //object breaks
         listItem.appendChild(button);
-        button.addEventListener('click', function (event) { //object breaks
+        button.addEventListener('click', function (event) {
             pokemonRepository.showDetails(pokemone);
         });
 }
