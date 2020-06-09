@@ -72,7 +72,6 @@ function addListItem(pokemone) {
         container.appendChild(listItem); //object breaks
         listItem.appendChild(button);
         button.addEventListener('click', function (event) { //object breaks
-            document.write(pokemone);
             pokemonRepository.showDetails(pokemone);
         });
 }
