@@ -63,7 +63,9 @@ function addListItem(pokemone) {
         container.appendChild(listItem); //object breaks
         listItem.appendChild(button);
         button.addEventListener('click', function (event) {
-            pokemonRepository.showDetails(pokemone);
+            //pokemonRepository.showDetails(pokemone);
+            // log in the console the pokemone object
+            console.log(pokemone)
         });
 }
     pokemonRepository.loadList().then(function () {
