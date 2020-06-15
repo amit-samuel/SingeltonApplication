@@ -77,44 +77,6 @@ var pokemonRepository = (function () {
         });
     }
 
-    function showDialog(title, text) {
-        showModal(title, text);
-
-        // We want to add a confirm and cancel button to the modal
-        var modal = modalContainer.querySelector('.modal');
-
-        var confirmButton = document.createElement('button');
-        confirmButton.classList.add('modal-confirm');
-        confirmButton.innerText = 'Confirm';
-
-        var cancelButton = document.createElement('button');
-        cancelButton.classList.add('modal-cancel');
-        cancelButton.innerText = 'Cancel';
-
-        modal.appendChild(confirmButton);
-        modal.appendChild(cancelButton);
-
-        // We want to focus the confirmButton so that the user can simply press Enter
-        confirmButton.focus();
-
-        // Return a promise that resolves when confirmed, else rejects
-        return new Promise((resolve, reject) => {
-            cancelButton.addEventListener('click', hideModal);
-            confirmButton.addEventListener('click', () => {
-                dialogPromiseReject = null; // Reset this
-                hideModal();
-                resolve();
-            });
-
-            // This can be used to reject from other functions
-            dialogPromiseReject = reject;
-        });
-    }
-
-
-
-
-
     function addListItem(pokemone) {
         var container = document.querySelector('.pokemon-list');
         var listItem = document.createElement('li');
@@ -123,22 +85,17 @@ var pokemonRepository = (function () {
         container.appendChild(listItem); //object breaks
         listItem.appendChild(button);
         button.addEventListener('click', function (event) {
-            //pokemonRepository.showDetails(pokemone);
-            // log in the console the pokemone object
+            debugger;
             showModal(pokemone);
         });
     }
 
-    var dialogPromiseReject; // This can be set later, by showDialog
+
 
     function hideModal() {
         var modalContainer = document.querySelector('#modal-container');
 
         modalContainer.classList.remove('is-visible');
-        if (dialogPromiseReject) {
-            dialogPromiseReject();
-            dialogPromiseReject = null;
-        }
     }
 
 
@@ -150,14 +107,6 @@ var pokemonRepository = (function () {
         }
     });
 
-    document.querySelector('#show-dialog').addEventListener('click', () => {
-        showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
-            alert('confirmed!');
-        }, () => {
-            alert('not confirmed');
-        });
-    });
-
     return{
         add: add,
         getAll: getAll,
@@ -166,8 +115,7 @@ var pokemonRepository = (function () {
         showDetails: showDetails,
         showModal: showModal,
         hideModal: hideModal,
-        addListItem: addListItem,
-        showDialog: showDialog
+        addListItem: addListItem
     };
 })();
 
